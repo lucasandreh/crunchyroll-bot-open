@@ -1,0 +1,20 @@
+{
+    "name": "Crunchyroll Discord",
+    "description": "Extensão para adicionar o que está assistindo ao Discord.",
+    "version": "0.1",
+    "manifest_version": 3,
+    "permissions": ["storage", "activeTab", "scripting"],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+          "matches": ["*://beta.crunchyroll.com/*/watch/*"],
+          "js": ["main.js"]
+        },
+         {
+           "matches": [ "*://*.LINK DO SEU SITE"],
+           "js": ["login.js"] 
+         }
+      ]
+}

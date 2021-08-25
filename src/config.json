@@ -1,0 +1,10 @@
+{
+    "client_id": "ID DO SEU BOT",
+    "client_token": "TOKEN DE ACESSO AO SEU BOT",
+    "client_secret": "SECRET DO SEU BOT",
+    "client_redirect": "URL DE REDIRECT",
+    "client_login_url": "URL DE LOGIN COM DISCORD",
+    "discord_token_url": "URL PARA REQUEST DO ACCESS TOKEN",
+    "scope": "PERMISSÕES DE ACESSO DA URL",
+    "channel_id": "ID DO CANAL ONDE O BOT ENVIARÁ AS MENSAGENS"
+}

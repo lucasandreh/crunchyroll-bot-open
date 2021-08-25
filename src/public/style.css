@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body, html {
+    background-color: #23272A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+
+    gap: 20px;
+}
+
+.bot {
+    color: #404EED;
+    font-weight: 700;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 10px;
+    width: 800px;
+    height: 500px;
+    background-color: #2C2F33;
+    gap: 20px;
+
+    border-radius: 10px;
+}
+
+.avatar {
+    border-radius: 50%;
+}
+
+.user-name {
+    color: #fff;
+    font-weight: 500;
+
+    padding: 20px;
+    background-color: #23272A;
+    border-radius: 10px;
+}
+
+.username span {
+    font-size: 13px;
+    color: #99AAB5;
+}
+
+.message {
+    width: 80%;
+    height: 40%;
+    background-color: #23272A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message p {
+    color: #fff;
+}
