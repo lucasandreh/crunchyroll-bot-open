@@ -1,49 +1,24 @@
-chrome.storage.sync.get(({discordUser}) => {
-    const [ name, tag ] = discordUser.split('#');
-
-    const site_url = "URL DO SEU SITE";
-
-    setTimeout(() => {
-        const anime = document.querySelector(".show-title-link h4");
-        const episode = document.querySelector(".erc-current-media-info h2");
-        const nextEpisode = document.querySelector(".c-playable-card-mini__link");
-    
-        console.log({
-            anime: anime.textContent,
-            episode: episode.textContent
-        });
-    
-        setTimeout(async () => {
-            await fetch(`${site_url}?anime=${anime.textContent}&episode=${episode.textContent}&url=${window.location.href}&user=${name}&tag=${tag}`, {
-                method: "post"
-            });        
-        }, 5000)
-    
-         function getAnime() {
-            setTimeout(() => {
+setTimeout(() => {
+    if(window.location.href.indexOf('/watch')) {
+        chrome.storage.sync.get(({discordUser}) => {
+            const [ name, tag ] = discordUser.split('#');
+            let location = '';
+            function getAnime() {
                 const anime = document.querySelector(".show-title-link h4");
                 const episode = document.querySelector(".erc-current-media-info h2");
-                const nextEpisode = document.querySelector(".c-playable-card-mini__link");
-    
-                console.log({
-                    anime: anime.textContent,
-                    episode: episode.textContent
-                });
-    
                 setTimeout(async () => {
-                    await fetch(`${site_url}?anime=${anime.textContent}&episode=${episode.textContent}&url=${window.location.href}&user=${name}&tag=${tag}`, {
-                    method: "post"
-                });
-                }, 5000)
-    
-                nextEpisode.addEventListener("click", () => {
-                    getAnime();
+                await fetch(`https://crunchyroll-bot.herokuapp.com/?anime=${anime.textContent}&episode=${episode.textContent}&url=${window.location.href}&user=${name}&tag=${tag}`, {
+                        method: "post"
                 });
             }, 3000);
         }
-    
-        nextEpisode.addEventListener("click", () => {
-            getAnime();
+                setInterval(() => {
+                    if(window.location.href !== location) {
+                        location = window.location.href;
+                        console.log(location);
+                        getAnime();
+                    }
+                }, 5 * 1000)
         });
-    }, 3000);
-});
+    }
+}, 5000)
