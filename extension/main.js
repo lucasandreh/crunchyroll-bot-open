@@ -15,7 +15,6 @@ setTimeout(() => {
                 setInterval(() => {
                     if(window.location.href !== location) {
                         location = window.location.href;
-                        console.log(location);
                         getAnime();
                     }
                 }, 5 * 1000)
